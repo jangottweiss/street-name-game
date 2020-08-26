@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken =  process.env.MAPBOX || 'pk.eyJ1IjoiamFuMTE4NSIsImEiOiJja2VhNW91bGkwM2FsMnBwMGd4emdvY3BrIn0.MEOvQlEAIgjJulgLEcoA6A';
+const MAPBOX_API_KEY =`${process.env.REACT_APP_MAPBOX_API_KEY}`
+mapboxgl.accessToken =  MAPBOX_API_KEY || '';
 
 export function Map() {
     const [latLngZoom, setLatLngZoom] = useState({ lng: 5, lat: 34, zoom: 1.5 });
