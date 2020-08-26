@@ -9,8 +9,8 @@ export interface GameRegion {
 }
 
 export interface GameSettings {
-    mode: string,
-    region: string,
+    mode: GameMode,
+    region: GameRegion | undefined,
     difficulty: number,
     rounds: number,
 }
@@ -21,3 +21,7 @@ export interface SettingsState {
     settings: GameSettings,
 }
 
+export interface Game {
+    state: string,
+    currentRound: number,
+}
