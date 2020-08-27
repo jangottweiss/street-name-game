@@ -1,3 +1,6 @@
+import { GeoJsonObject, Point } from 'geojson';
+
+
 export interface GameMode {
     id: string,
     name: string,
@@ -21,7 +24,17 @@ export interface SettingsState {
     settings: GameSettings,
 }
 
+export interface GameRound {
+    roundNo: number,
+    streetName: string,
+    streetGeometry: GeoJsonObject,
+    correctAnswer: boolean | null,
+    guessName: string | null,
+    guessPoint: Point,
+}
 export interface Game {
     state: string,
-    currentRound: number,
+    currentRound: GameRound | null,
+    previousRounds: Array<GameRound>,
+    nextRounds: Array<GameRound>
 }
